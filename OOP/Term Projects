@@ -1,0 +1,5 @@
+*.out
+*.txt
+*.cpp
+*.bms
+"Term Project"/*.bms
