@@ -20,7 +20,7 @@
  *
  * 3. compile the source folder with -std=c++11 compiler option i.e g++ -std=c++11 bank_management_system.cpp
  *
- * 4. Run the compiled source file i.e ./a.exe
+ * 4. Run the compiled source file i.e ./a.out
  */
 
 
@@ -40,7 +40,6 @@ using namespace std;
 /* Macro for clearing screen on windows and linux systems*/
 #ifdef _WIN32
     #define CLEAR "cls"
-}
 #else
     #define CLEAR "clear"
 #endif        
