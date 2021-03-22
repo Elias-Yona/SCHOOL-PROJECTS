@@ -1,0 +1,420 @@
+* {
+    margin: 0; /*reset every element*/
+    padding: 0;
+    font-family: Helvetica, arial, verdana;
+    line-height: 1.5em;
+}
+
+body {
+    background-color: rgb(233, 232, 232);
+}
+
+h4 {
+    padding-bottom: 8px;
+}
+
+p {
+    padding-bottom: 13px;
+}
+
+a:hover{
+    color: blue;
+}
+
+
+#animation-wrapper {
+    width: 53%;
+    /* background-color: rgb(190, 73, 73); */
+    margin: auto;
+    margin-top: 10%;
+}
+
+/* #animation-wrapper:hover {
+    width: 70%;
+} */
+
+#main-content {
+    margin: auto;
+    /* margin-top: 20px; */
+    width: 90%;
+    background-color: rgba(253, 198, 207, 0.801);
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 1em 4.3em 2em 4.3em;
+    /* padding: 3.5em;
+    padding-bottom: 2em; */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.30), 0 11px 8px rgba(0,0,0,0.22); /* shadow */
+}
+
+section {
+    background-color: #6c8de0;
+    width: 70%;
+    margin: auto;
+    border-radius: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.30), 0 11px 8px rgba(0,0,0,0.22); /*shadow on each section*/
+    padding: 2em;
+}
+
+
+#homepage-heading{
+    text-align: center;
+    padding-bottom: 0.5em;
+    color: rgb(218, 29, 29);
+}
+
+
+/* #main-content * {
+    margin-left: 15px;
+    margin-right: 15px;
+} */
+
+ul, ol {
+    margin-left: 1em;
+}
+
+
+/* position the href links in the homepage */
+.block {
+    display: block;
+    line-height: 2em;
+    font-weight: 2pt;
+    color: purple;
+}
+
+/* section:hover {
+    width: 90%;
+    box-shadow: 0 18px 36px rgba(0,0,0,0.30), 0 14px 11px rgba(0,0,0,0.22);
+} */
+.subheading{
+    padding-top: 1em;
+}
+
+.empty-space {
+    height: 50px;
+}
+
+/* Media queries */
+/* 
+    desktop: 1200px
+    laptop: 1024px
+    tablet: 768px
+    phone:480px;
+*/
+@media screen and (max-width:600px){
+
+    #animation-wrapper {
+        width: 100%;
+    }
+
+    .homepage-heading {
+        text-align: center;
+    }
+
+    #main-content {
+        width: 100%;
+        padding: 0 0 1em 0;
+    }
+
+    section {
+        width: 95%;
+        margin-bottom: 2em;
+        padding: 1em;
+    }
+
+    .block {
+        display: none;
+    }
+
+
+}
+
+@media screen and (min-width:600px){
+    /*/////////////////////////////////////////*/
+/*Lightbox*/
+.lightbox {
+    display: table;
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition-duration: 2s;
+}
+
+/* Cover the entire screen */
+.lightbox:target {
+    top: 0; 
+}
+
+.lightbox-content {
+    display: table-cell;
+    vertical-align: middle;
+    background-color: rgb(233, 232, 232);  
+}
+
+
+
+/*//////////////////////////////////////////////////*/
+/* close Button */
+.close {
+    /* position button to the top right corner */
+    position: relative;
+    left: 95%;
+    /* style the close button */
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: rgb(228, 19, 19);
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+    /*/////////////////////////////////////////*/
+/*Corona virus animation*/
+.corona-virus{
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: red;
+    float: left;
+}
+
+/* Target both eyes */
+[class*="eye"]{
+    position: absolute;
+    top: 25%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: pink;
+}
+
+.eye1{
+    top: 10%;
+    left: 25%;
+}
+
+.eye2{
+    top: 40%;
+    right:40%;
+}
+
+.eye3{
+    top: 55%;
+    left: 60%;
+    width: 16px;
+    height: 16px;
+}
+
+.eye4{
+    top:65%;
+    left: 19%;
+}
+
+/*** all hairs ***/
+[class*="hair"]{
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -4px;
+}
+
+[class*="hair"]::before{
+    content: "";
+    display: block;
+    width: 16px;
+    margin-left: -8px;
+    height: 5px;
+    border-radius: 50%;
+    background-color:red;
+}
+
+[class*="hair"]::after{
+    content: "";
+    display: block;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    width: 4px;
+    margin-left: -4px;
+    height: 20px;
+    background-color: red;
+}
+
+/*hairs location*/
+.hair1 {
+    transform: rotateZ(30deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove1  1s linear -60ms infinite alternate;
+}
+
+/* key-frames animation for every hair */
+@keyframes hairMove1{
+    from {transform:rotateZ(0deg) translateY(-68px);}
+    to {transform:rotateZ(0deg) translateY(-61px);}
+}
+
+
+.hair2 {
+    transform: rotateZ(60deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove2  1s linear -120ms infinite alternate;
+}
+
+@keyframes hairMove2{
+    from {transform:rotateZ(30deg) translateY(-68px);}
+    to {transform:rotateZ(30deg) translateY(-61px);}
+}
+
+.hair3 {
+    transform: rotateZ(90deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove3  1s linear -180ms infinite alternate;
+}
+
+@keyframes hairMove3{
+    from {transform:rotateZ(60deg) translateY(-68px);}
+    to {transform:rotateZ(60deg) translateY(-61px);}
+}
+
+.hair4 {
+    transform: rotateZ(120deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove4  1s linear -240ms infinite alternate;
+}
+
+@keyframes hairMove4{
+    from {transform:rotateZ(90deg) translateY(-68px);}
+    to {transform:rotateZ(90deg) translateY(-61px);}
+}
+
+.hair5 {
+    transform: rotateZ(150deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove5 1s linear -300ms infinite alternate;
+}
+
+@keyframes hairMove5{
+    from {transform:rotateZ(120deg) translateY(-68px);}
+    to {transform:rotateZ(120deg) translateY(-61px);}
+}
+
+
+.testing {
+    height: 100000px;
+    background-color: red;
+}
+
+.hair6 {
+    transform: rotateZ(180deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove6 1s linear -360ms infinite alternate;
+}
+
+@keyframes hairMove6{
+    from {transform:rotateZ(150deg) translateY(-68px);}
+    to {transform:rotateZ(150deg) translateY(-61px);}
+}
+
+.hair7 {
+    transform: rotateZ(210deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove7 1s linear -420ms infinite alternate;
+}
+
+@keyframes hairMove7{
+    from {transform:rotateZ(180deg) translateY(-68px);}
+    to {transform:rotateZ(180deg) translateY(-61px);}
+}
+
+.hair8 {
+    transform: rotateZ(240deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove8 1s linear -480ms infinite alternate;
+}
+
+@keyframes hairMove8{
+    from {transform:rotateZ(210deg) translateY(-68px);}
+    to {transform:rotateZ(210deg) translateY(-61px);}
+}
+
+.hair9 {
+    transform: rotateZ(270deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove9 1s linear -540ms infinite alternate;
+}
+
+@keyframes hairMove9{
+    from {transform:rotateZ(240deg) translateY(-68px);}
+    to {transform:rotateZ(240deg) translateY(-61px);}
+}
+
+.hair10 {
+    transform: rotateZ(300deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove10 1s linear -600ms infinite alternate;
+}
+
+@keyframes hairMove10{
+    from {transform:rotateZ(270deg) translateY(-68px);}
+    to {transform:rotateZ(270deg) translateY(-61px);}
+}
+
+
+.hair11 {
+    transform: rotateZ(330deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove11 1s linear -660ms infinite alternate;
+}
+
+@keyframes hairMove11{
+    from {transform:rotateZ(300deg) translateY(-68px);}
+    to {transform:rotateZ(300deg) translateY(-61px);}
+}
+
+.hair12 {
+    transform: rotateZ(360deg) translateY(-65px);
+    /* animate hair */
+    animation: hairMove12 1s linear -720ms infinite alternate;
+}
+
+@keyframes hairMove12{
+    from {transform:rotateZ(330deg) translateY(-68px);}
+    to {transform:rotateZ(330deg) translateY(-61px);}
+}
+
+}
+
+@media screen and (max-width: 850px) and (min-width: 600px){
+    
+    #animation-wrapper {
+        width: 90%;
+    }
+
+    #main-content{
+        padding: 1em 6.3em 2em 6.3em;
+    }
+}
