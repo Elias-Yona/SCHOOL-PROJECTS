@@ -32,9 +32,8 @@ END; $$
 CREATE OR REPLACE TRIGGER check_loan_limit
 BEFORE INSERT ON loans
 FOR EACH ROW
-WHEN (number_of_books_checked_out(NEW.userid) >= 5)
-EXECUTE FUNCTION raise_exception('A user cannot have more than 5 books checked out.');
-
-
-
-
+BEGIN
+  IF number_of_books_checked_out(NEW.userid) >= 5 THEN
+    RAISE EXCEPTION 'A user cannot have more than 5 books checked out.';
+  END IF;
+END;
